@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Empire Blueprint - Easter Bundle 🐣</title>
+    <title>Newsletter Operator - Limited Time Offer 🚀</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
     <style>
@@ -39,13 +39,155 @@
             transform: rotate(-15deg);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Enhanced hover animations */
+        .workshop-card {
+            transition: all 0.3s ease;
+        }
+        .workshop-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-hover {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .btn-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn-hover:hover::before {
+            left: 100%;
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Sticky bottom bar */
+        .sticky-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+        }
+        .sticky-bottom-bar.show {
+            transform: translateY(0);
+        }
+        
+        /* Exit intent popup */
+        .exit-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .exit-popup-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            animation: popupSlide 0.3s ease;
+        }
+        @keyframes popupSlide {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+        .close-popup:hover {
+            color: #333;
+        }
+        
+        /* Pulse animation for CTAs */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        
+        /* FAQ Collapsible */
+        .faq-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            background-color: #f8fafc;
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-content.open {
+            max-height: 200px;
+        }
+        .faq-arrow {
+            transition: transform 0.3s ease;
+        }
+        .faq-arrow.open {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <header class="gradient-bg text-white py-16 px-4">
         <div class="max-w-4xl mx-auto mb-8">
             <div class="timer-section p-4 rounded-lg text-center">
-                <h3 class="text-xl font-bold mb-2">🔔 Easter Special - Not Available After Easter Sunday! 🔔</h3>
+                <h3 class="text-xl font-bold mb-2">🔔 BUNDLE DISAPPEARS AFTER July 31st! 🔔</h3>
                 <div class="flex justify-center space-x-4" id="countdown">
                     <div class="timer-box">
                         <div class="text-2xl font-bold text-red-600" id="days">00</div>
@@ -67,38 +209,152 @@
             </div>
         </div>
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">EMAIL EMPIRE BLUEPRINT</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">NEWSLETTER OPERATOR</h1>
             <h2 class="text-2xl md:text-3xl mb-8">Earn $3K-$5K Monthly From A Simple Email List...<br>In Just 30 Minutes A Day</h2>
             <p class="text-xl mb-8">Write an email. Make an offer. Press Send. Repeat.</p>
-            <a href="https://courses.becomeawritertoday.com/purchase?product_id=6220694" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-gray-900 text-2xl font-bold py-4 px-8 rounded-full transform hover:scale-105 transition-all duration-200 shadow-lg">
+            <a href="https://checkout.teachable.com/secure/37332/checkout/order_pz65ndkp" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-gray-900 text-2xl font-bold py-4 px-8 rounded-full btn-hover pulse shadow-lg">
                 Buy Now For $197 
             </a>
+            <div class="flex items-center justify-center mt-4 text-sm text-white opacity-90">
+                🔒 Secure checkout | 💳 All payment methods accepted | ⚡ Instant access
+            </div>
         </div>
     </header>
 
     <main class="max-w-4xl mx-auto px-4 py-12">
         <div class="bg-white rounded-lg shadow-xl p-8 mb-12">
-            <p class="text-lg mb-6"><strong>Dear xCreator,</strong></p>
-            <p class="text-lg mb-6">Are you tired of:</p>
-            <ul class="list-disc list-inside mb-6">
-                <li><i class="fas fa-times mr-2 text-red-500"></i> Creating content that disappears into the void after 24 hours?</li>
-                <li><i class="fas fa-times mr-2 text-red-500"></i> Watching your social posts get buried by algorithm changes?</li>
-                <li><i class="fas fa-times mr-2 text-red-500"></i> Building an audience on platforms where you don't own your relationships?</li>
-                <li><i class="fas fa-times mr-2 text-red-500"></i> Working twice as hard for half the results each passing month?</li>
-                <li><i class="fas fa-times mr-2 text-red-500"></i> Feeling like you're always one update away from losing everything?</li>
+            <p class="text-lg mb-6"><strong>Dear Writer and Business Owner,</strong></p>
+            <p class="text-lg mb-6">What if I told you the content platform you're <em>NOT</em> using could be your biggest revenue driver?</p>
+            <p class="text-lg mb-4">While you're burning out trying to:</p>
+            <ul class="space-y-3 mb-8">
+                <li class="flex items-start">
+                    <span class="text-red-500 mr-3 text-xl">❌</span>
+                    <span><strong>Create content that vanishes in 24 hours</strong> (Instagram stories, Twitter posts)</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-red-500 mr-3 text-xl">❌</span>
+                    <span><strong>Chase algorithm changes</strong> that kill your reach overnight</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-red-500 mr-3 text-xl">❌</span>
+                    <span><strong>Build audiences you don't own</strong> (one policy change = gone)</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-red-500 mr-3 text-xl">❌</span>
+                    <span><strong>Work 60+ hours a week</strong> for inconsistent income</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-red-500 mr-3 text-xl">❌</span>
+                    <span><strong>Compete with AI and influencers</strong> for attention</span>
+                </li>
             </ul>
-            <p class="text-lg mb-6">Email marketing is more profitable than trying to game algorithms on X or Instagram. And it's actually enjoyable. While others chase fleeting trends, you'll build a sustainable asset you fully control.</p>
-            <p class="text-lg">Email works even better today as readers crave authenticity in an AI-dominated world. They want to hear directly from YOU—not another generic influencer or corporate brand.</p>
-            <p class="text-lg mb-6">After 15 years creating content online, I've built multiple successful businesses through strategic email marketing.</p>
-            <p class="text-lg mb-6">The key insight? Email marketing is the most profitable skill for creators and business owners, yet most are doing it wrong—or worse, not doing it at all.</p>
-            <p class="text-lg">You can make 6-figures in profits from a content business working just 2-4 hours daily if you master email marketing. In these workshops, I reveal exactly how to start, grow, and monetize your list so you can earn more THIS month.</p>
+            
+            <p class="text-lg mb-6">...smart creators are quietly building <strong>newsletter operations</strong> that generate consistent monthly revenue in just 30 minutes a day.</p>
+            
+            <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                <h3 class="text-xl font-bold mb-4">Here's what they know:</h3>
+                <p class="text-lg">Email isn't just more profitable than social media—it's the <strong>only platform where YOU control the relationship.</strong> No algorithms. No sudden policy changes. No vanishing content.</p>
+            </div>
+            
+            <p class="text-lg mb-6">And here's the kicker: <strong>In an AI-saturated world, people crave authentic, personal communication more than ever.</strong> They want to hear from YOU, not another bot or faceless brand.</p>
+            
+            <p class="text-lg mb-6">After 15 years and multiple 6-figure businesses, I've cracked the code on email marketing for creators and business owners.</p>
+            
+            <div class="bg-yellow-50 p-6 rounded-lg mb-6 border-l-4 border-yellow-400">
+                <p class="text-lg"><strong>The secret?</strong> Most people treat email like social media (big mistake). The ones making serious monthly revenue follow a completely different playbook.</p>
+            </div>
+            
+            <p class="text-lg font-semibold">Ready to see exactly how it works?</p>
         </div>
 
+        <!-- Newsletter Calculator Section -->
+        <section class="mb-12 bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-lg shadow-xl">
+            <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">📊 Calculate Your Newsletter Revenue Potential</h2>
+            <p class="text-center text-lg mb-8 text-gray-600">See exactly how much you could earn with a strategic newsletter operation</p>
+            
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+                <!-- Calculator Form -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Your Newsletter Details</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Niche</label>
+                            <select id="niche" class="w-full p-3 border rounded-lg">
+                                <option value="writers">Writers/Authors</option>
+                                <option value="business">Small Business Owners</option>
+                                <option value="creators">Content Creators</option>
+                                <option value="coaches">Coaches/Consultants</option>
+                                <option value="courses">Course Creators</option>
+                                <option value="saas">SaaS Founders</option>
+                                <option value="freelancers">Freelancers</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Current Subscribers</label>
+                            <input type="number" id="currentSubs" value="500" class="w-full p-3 border rounded-lg" min="0">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">New Subscribers Per Week</label>
+                            <input type="number" id="weeklyGrowth" value="25" class="w-full p-3 border rounded-lg" min="0">
+                            <small class="text-gray-500">How many new subscribers do you currently get each week?</small>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Monetization Model</label>
+                            <select id="monetization" class="w-full p-3 border rounded-lg">
+                                <option value="sponsorships">Sponsorships/Ads</option>
+                                <option value="paid">Paid Newsletter</option>
+                                <option value="digital">Digital Products/Courses</option>
+                                <option value="services">Services/Coaching</option>
+                                <option value="hybrid">Multiple Revenue Streams</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Monthly Ad Budget ($) - Optional</label>
+                            <input type="number" id="adBudget" value="0" class="w-full p-3 border rounded-lg" min="0">
+                        </div>
+                        
+                        <button onclick="calculateRevenue()" class="w-full bg-purple-600 text-white py-3 rounded-lg font-bold hover:bg-purple-700 btn-hover">
+                            <span id="calcButtonText">Calculate My Potential 🚀</span>
+                            <div id="calcLoading" class="loading hidden"></div>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Your Revenue Projections</h3>
+                    
+                    <div id="results" class="space-y-4">
+                        <div class="text-center text-gray-500">
+                            <p>👆 Fill out the form and click calculate to see your potential</p>
+                        </div>
+                    </div>
+                    
+                    <div id="recommendations" class="mt-6 p-4 bg-blue-50 rounded-lg hidden">
+                        <h4 class="font-bold text-lg mb-2">📈 Growth Strategy Recommendation</h4>
+                        <p id="recommendationText" class="text-gray-700"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg inline-block">
+                    <p class="text-lg font-semibold">💡 These numbers are achievable with the right system...</p>
+                    <p class="text-gray-700">Learn the exact strategies I use to hit these targets in <strong>Newsletter Operator</strong> ⬇️</p>
+                </div>
+            </div>
+        </section>
+
         <section class="mb-12 bg-white py-12">
-            <h2 class="text-3xl font-bold mb-8 text-center">What's Inside This Easter Bundle 🐣</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center">What's Inside This Limited Offer 🚀</h2>
             <div class="max-w-4xl mx-auto px-4 space-y-6">
                 <div class="bg-gray-50 p-6 rounded-lg shadow-md hover-scale border-l-4 border-purple-500">
-                    <h3 class="font-bold text-xl mb-2">✅ Build Your Email Empire Blueprint</h3>
+                    <h3 class="font-bold text-xl mb-2">✅ Build Your Newsletter Operation Blueprint</h3>
                     <p class="text-gray-700">Complete system to grow from zero to 1,000+ subscribers and beyond so you can earn $3K-$5K a month from email</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg shadow-md hover-scale border-l-4 border-purple-500">
@@ -134,15 +390,18 @@
                 <p class="text-2xl font-bold mb-2">TOTAL VALUE: <span class="text-purple-600">$1,282</span></p>
                 <p class="text-4xl font-bold mb-4">YOUR INVESTMENT TODAY: <span class="text-green-600">JUST $197</span></p>
             </div>
-            <a href="https://courses.becomeawritertoday.com/purchase?product_id=6220694" class="inline-block bg-green-600 text-white text-xl font-bold py-4 px-8 rounded-full hover:bg-green-700 transition-colors duration-200">
+            <a href="https://checkout.teachable.com/secure/37332/checkout/order_pz65ndkp" class="inline-block bg-green-600 text-white text-xl font-bold py-4 px-8 rounded-full hover:bg-green-700 btn-hover pulse">
                 Buy Now
             </a>
+            <div class="flex items-center justify-center mt-4 text-sm text-gray-600">
+                🔒 Secure checkout | 💳 All payment methods accepted | ⚡ Instant access
+            </div>
         </section>
 
         <section class="mb-12">
             <h2 class="text-3xl font-bold mb-8 text-center">Workshop Details</h2>
             <div class="space-y-8">
-                <div class="bg-white p-6 rounded-lg shadow-md flex gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md flex gap-6 workshop-card">
                     <div class="flex-shrink-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
                         <span class="text-2xl">📈</span>
                     </div>
@@ -152,7 +411,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md flex gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md flex gap-6 workshop-card">
                     <div class="flex-shrink-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
                         <span class="text-2xl">💰</span>
                     </div>
@@ -162,7 +421,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md flex gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md flex gap-6 workshop-card">
                     <div class="flex-shrink-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
                         <span class="text-2xl">🤖</span>
                     </div>
@@ -172,7 +431,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md flex gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md flex gap-6 workshop-card">
                     <div class="flex-shrink-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
                         <span class="text-2xl">💳</span>
                     </div>
@@ -185,7 +444,7 @@
         </section>
 
         <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-8 text-center">Exclusive Easter Bonuses... Powered by AI</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center">Exclusive Limited-Time Bonuses... Powered by AI</h2>
             <div class="space-y-6">
                 <div class="bg-yellow-50 p-6 rounded-lg shadow-md border-2 border-yellow-400">
                     <h3 class="text-2xl font-bold mb-4">BONUS 1: Lead Magnet Wizard</h3>
@@ -207,10 +466,13 @@
         <section class="mb-12 text-center">
             <div class="bg-white p-8 rounded-lg shadow-xl">
                 <h2 class="text-3xl font-bold mb-6">Your Guarantee</h2>
-                <p class="text-lg mb-8">I don't want you to be unhappy with your purchase. This Easter bundle comes with a 14-day money-back guarantee.</p>
-                <a href="https://courses.becomeawritertoday.com/purchase?product_id=6220694" class="inline-block bg-green-600 text-white text-xl font-bold py-4 px-8 rounded-full hover:bg-green-700 transition-colors duration-200">
+                <p class="text-lg mb-8">I don't want you to be unhappy with your purchase. This limited offer comes with a 14-day money-back guarantee.</p>
+                <a href="https://checkout.teachable.com/secure/37332/checkout/order_pz65ndkp" class="inline-block bg-green-600 text-white text-xl font-bold py-4 px-8 rounded-full hover:bg-green-700 btn-hover pulse">
                     Buy Now for $197
                 </a>
+                <div class="flex items-center justify-center mt-4 text-sm text-gray-600">
+                    🔒 Secure checkout | 💳 All payment methods accepted | ⚡ Instant access
+                </div>
             </div>
         </section>
 
@@ -218,38 +480,78 @@
         <section class="py-12 bg-white">
             <div class="max-w-4xl mx-auto px-4">
                 <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
-                <div class="space-y-6">
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-2">💸 Who Is This Bundle For?</h3>
-                        <p class="text-gray-700">It's for writers, creators, and business owners. The bundle is for anyone who creates content to build a brand, make an impact or earn some moolah from plain old email.</p>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(0)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h3 class="text-xl font-bold">💸 Who Is This Bundle For?</h3>
+                            <span class="faq-arrow text-2xl">▼</span>
+                        </div>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-700">It's for writers, creators, and business owners. The bundle is for anyone who creates content to build a brand, make an impact or earn some moolah from plain old email.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-2">🌱 I'm a beginner, and I don't have an email list...</h3>
-                        <p class="text-gray-700">The workshops show you everything you need to write and grow your email list. I still use these strategies today to add hundreds of new subscribers to my lists every month.</p>
+                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(1)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h3 class="text-xl font-bold">🌱 I'm a beginner, and I don't have an email list...</h3>
+                            <span class="faq-arrow text-2xl">▼</span>
+                        </div>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-700">The workshops show you everything you need to write and grow your email list. I still use these strategies today to add hundreds of new subscribers to my lists every month.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-2">📝 Is this just theory, or will I implement something that works?</h3>
-                        <p class="text-gray-700">This isn't just theory—each workshop includes step-by-step implementation guides, templates, and specific actions you can take immediately.</p>
+                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(2)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h3 class="text-xl font-bold">📝 Is this just theory, or will I implement something that works?</h3>
+                            <span class="faq-arrow text-2xl">▼</span>
+                        </div>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-700">This isn't just theory—each workshop includes step-by-step implementation guides, templates, and specific actions you can take immediately.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-2">⏱️ I'm already stretched thin. How much time will this take to implement?</h3>
-                        <p class="text-gray-700">I designed this system specifically for busy creators. The workshops are actionable and contain time-saving AI tools. One AI tool alone saves 5-7 hours weekly on content creation.</p>
+                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(3)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h3 class="text-xl font-bold">⏱️ I'm already stretched thin. How much time will this take to implement?</h3>
+                            <span class="faq-arrow text-2xl">▼</span>
+                        </div>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-700">I designed this system specifically for busy creators. The workshops are actionable and contain time-saving AI tools. One AI tool alone saves 5-7 hours weekly on content creation.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-2">💻 I'm not tech-savvy. Will I be able to handle the AI tools?</h3>
-                        <p class="text-gray-700">Absolutely! I built these AI tools for creators, not developers.I've tested the process with complete beginners. If you can use Gmail, you can implement these systems. Plus, you'll get access to our quick-start guides that make setup a breeze.</p>
+                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(4)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h3 class="text-xl font-bold">💻 I'm not tech-savvy. Will I be able to handle the AI tools?</h3>
+                            <span class="faq-arrow text-2xl">▼</span>
+                        </div>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-700">Absolutely! I built these AI tools for creators, not developers.I've tested the process with complete beginners. If you can use Gmail, you can implement these systems. Plus, you'll get access to our quick-start guides that make setup a breeze.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-2">🤝 What kind of support do I get?</h3>
-                        <p class="text-gray-700">You'll have direct email access to me (Bryan) for any questions or support you need. I personally respond to all emails and am committed to helping you succeed with your email empire.</p>
+                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(5)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h3 class="text-xl font-bold">🤝 What kind of support do I get?</h3>
+                            <span class="faq-arrow text-2xl">▼</span>
+                        </div>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-700">You'll have direct email access to me (Bryan) for any questions or support you need. I personally respond to all emails and am committed to helping you succeed with your newsletter operation.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-2">⏰ How long do I have access to the workshops?</h3>
-                        <p class="text-gray-700">The workshops are completely self-paced, and you get lifetime access to all content. Learn at your own speed and revisit the material whenever you need a refresher.</p>
+                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(6)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h3 class="text-xl font-bold">⏰ How long do I have access to the workshops?</h3>
+                            <span class="faq-arrow text-2xl">▼</span>
+                        </div>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-700">The workshops are completely self-paced, and you get lifetime access to all content. Learn at your own speed and revisit the material whenever you need a refresher.</p>
+                        </div>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold mb-2">⚡ How long is this offer available?</h3>
-                        <p class="text-gray-700">This special Easter bundle is only available for a limited time. Once Easter is over, this offer will no longer be available at this price point, and the bonuses will be gone.</p>
+                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(7)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h3 class="text-xl font-bold">⚡ How long is this offer available?</h3>
+                            <span class="faq-arrow text-2xl">▼</span>
+                        </div>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-700">This bundle disappears after July 31st. Once this deadline passes, this offer will no longer be available at this price point, and the bonuses will be gone.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -295,7 +597,7 @@
                     <div class="text-lg">Guarantee</div>
                 </div>
             </div>
-            <p class="text-xl">If you're not completely satisfied with the Email Empire Blueprint within 14 days, I'll refund every cent. No questions asked.</p>
+            <p class="text-xl">If you're not completely satisfied with the Newsletter Operator within 14 days, I'll refund every cent. No questions asked.</p>
         </div>
     </section>
 
@@ -313,14 +615,297 @@
             <p class="mb-4">© 2025 Bryan Collins. All rights reserved.</p>
         </div>
     </footer>
+    
+    <!-- Sticky Bottom Bar -->
+    <div class="sticky-bottom-bar" id="stickyBar">
+        <div class="flex items-center justify-between max-w-4xl mx-auto">
+            <div>
+                <span class="font-bold">Newsletter Operator - Limited Time</span>
+                <span id="stickyTimer" class="ml-4 text-yellow-300"></span>
+            </div>
+            <a href="https://checkout.teachable.com/secure/37332/checkout/order_pz65ndkp" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2 px-6 rounded-full btn-hover">
+                Buy Now $197
+            </a>
+        </div>
+    </div>
+    
+    <!-- Exit Intent Popup -->
+    <div class="exit-popup" id="exitPopup">
+        <div class="exit-popup-content">
+            <span class="close-popup" onclick="closeExitPopup()">&times;</span>
+            <h3 class="text-2xl font-bold mb-4">Wait! Grab This FREE Tool 🛠️</h3>
+            <p class="text-lg mb-4">Get my <strong>Newsletter Content Calendar Builder</strong> before you go!</p>
+            <ul class="text-left mb-6 space-y-2">
+                <li>✅ 30-day content plans by niche</li>
+                <li>✅ Daily email topic suggestions</li>
+                <li>✅ Engagement-boosting angles</li>
+                <li>✅ Never run out of ideas again</li>
+            </ul>
+            <div class="space-y-3">
+                <button onclick="claimContentTool()" class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 btn-hover">
+                    Get My Content Calendar Tool 📅
+                </button>
+            </div>
+            <p class="text-sm text-gray-600 mt-4">Instant access - no email required!</p>
+        </div>
+    </div>
+    
     <script>
-        // Set the date we're counting down to (April 23rd midnight EST)
+        // Enhanced UX Features
+        let exitIntentShown = false;
+        let mouseY = 0;
+        
+        // Sticky Bottom Bar
+        function initStickyBar() {
+            const stickyBar = document.getElementById('stickyBar');
+            const stickyTimer = document.getElementById('stickyTimer');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 800) {
+                    stickyBar.classList.add('show');
+                } else {
+                    stickyBar.classList.remove('show');
+                }
+            });
+            
+            // Update timer in sticky bar
+            function updateStickyTimer() {
+                const now = DateTime.local().setZone('America/New_York');
+                const diff = countDownDate.diff(now, ['days', 'hours', 'minutes']);
+                stickyTimer.textContent = `${Math.floor(diff.days)}d ${Math.floor(diff.hours)}h ${Math.floor(diff.minutes)}m left`;
+            }
+            
+            updateStickyTimer();
+            setInterval(updateStickyTimer, 60000); // Update every minute
+        }
+        
+        // Exit Intent Detection
+        function initExitIntent() {
+            document.addEventListener('mouseout', (e) => {
+                if (!exitIntentShown && e.clientY <= 0) {
+                    showExitPopup();
+                }
+            });
+            
+            // Mobile exit intent (scroll to top quickly)
+            let lastScrollY = window.scrollY;
+            window.addEventListener('scroll', () => {
+                if (!exitIntentShown && window.scrollY < lastScrollY && window.scrollY < 100 && lastScrollY > 500) {
+                    showExitPopup();
+                }
+                lastScrollY = window.scrollY;
+            });
+        }
+        
+        function showExitPopup() {
+            if (exitIntentShown) return;
+            exitIntentShown = true;
+            document.getElementById('exitPopup').style.display = 'flex';
+        }
+        
+        function closeExitPopup() {
+            document.getElementById('exitPopup').style.display = 'none';
+        }
+        
+        // Close popup when clicking outside
+        document.addEventListener('click', (e) => {
+            const popup = document.getElementById('exitPopup');
+            const popupContent = document.querySelector('.exit-popup-content');
+            if (e.target === popup && !popupContent.contains(e.target)) {
+                closeExitPopup();
+            }
+        });
+        
+        function claimContentTool() {
+            // Here you would redirect to your content calendar tool or open it in a new tab
+            // For now, we'll show a success message and close the popup
+            alert('🎉 Success! Your Content Calendar Builder is opening in a new tab...');
+            
+            // You can replace this with the actual tool URL when ready:
+            // window.open('https://your-domain.com/content-calendar-tool', '_blank');
+            
+            closeExitPopup();
+        }
+        
+        // Enhanced Calculator with Loading Animation
+        function calculateRevenue() {
+            const button = document.querySelector('button[onclick="calculateRevenue()"]');
+            const buttonText = document.getElementById('calcButtonText');
+            const loading = document.getElementById('calcLoading');
+            
+            // Show loading animation
+            buttonText.style.display = 'none';
+            loading.classList.remove('hidden');
+            button.disabled = true;
+            
+            // Simulate processing time for better UX
+            setTimeout(() => {
+                performCalculation();
+                
+                // Hide loading animation
+                buttonText.style.display = 'inline';
+                loading.classList.add('hidden');
+                button.disabled = false;
+            }, 1500);
+        }
+        
+        function performCalculation() {
+            const niche = document.getElementById('niche').value;
+            const currentSubs = parseInt(document.getElementById('currentSubs').value) || 0;
+            const weeklyGrowth = parseInt(document.getElementById('weeklyGrowth').value) || 0;
+            const monetization = document.getElementById('monetization').value;
+            const adBudget = parseFloat(document.getElementById('adBudget').value) || 0;
+            
+            const unsubscribeRate = 0.015; // 1.5% default
+            const arpu = arpuData[niche][monetization];
+            const cpa = cpaData[niche];
+            
+            // Calculate subscriber projections
+            let subs = currentSubs;
+            const projections = [subs];
+            
+            for (let month = 1; month <= 12; month++) {
+                const organicGrowth = weeklyGrowth * 4; // Convert weekly growth to monthly growth
+                const churn = subs * unsubscribeRate;
+                const paidSubs = adBudget > 0 ? adBudget / cpa : 0;
+                
+                subs = subs + organicGrowth - churn + paidSubs;
+                projections.push(Math.round(subs));
+            }
+            
+            // Calculate revenue projections
+            const revenue3m = Math.round(projections[3] * arpu);
+            const revenue6m = Math.round(projections[6] * arpu);
+            const revenue12m = Math.round(projections[12] * arpu);
+            
+            // Calculate annual revenue
+            const annualRevenue = revenue12m * 12;
+            
+            // Calculate ROI if ad budget is provided
+            let roiText = '';
+            if (adBudget > 0) {
+                const monthlyAdCost = adBudget;
+                const additionalRevenue = (adBudget / cpa) * arpu;
+                const roi = ((additionalRevenue - monthlyAdCost) / monthlyAdCost * 100).toFixed(1);
+                roiText = `<div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                    <strong>Paid Growth ROI:</strong> ${roi}% monthly return<br>
+                    <small>+${Math.round(adBudget / cpa)} subscribers/month from ads</small>
+                </div>`;
+            }
+            
+            // Display results with animation
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.style.opacity = '0';
+            resultsDiv.innerHTML = `
+                <div class="space-y-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-lg">📈 Subscriber Projections</h4>
+                        <div class="grid grid-cols-3 gap-4 mt-2">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">${projections[3].toLocaleString()}</div>
+                                <div class="text-sm text-gray-600">3 Months</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">${projections[6].toLocaleString()}</div>
+                                <div class="text-sm text-gray-600">6 Months</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">${projections[12].toLocaleString()}</div>
+                                <div class="text-sm text-gray-600">12 Months</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-lg">💰 Revenue Projections</h4>
+                        <div class="grid grid-cols-2 gap-4 mt-2">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-600">$${revenue6m.toLocaleString()}</div>
+                                <div class="text-sm text-gray-600">Monthly (6 months)</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-600">$${annualRevenue.toLocaleString()}</div>
+                                <div class="text-sm text-gray-600">Annual Potential</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    ${roiText}
+                </div>
+            `;
+            
+            // Fade in results
+            setTimeout(() => {
+                resultsDiv.style.transition = 'opacity 0.5s ease';
+                resultsDiv.style.opacity = '1';
+            }, 100);
+            
+            // Show recommendations
+            document.getElementById('recommendations').classList.remove('hidden');
+            document.getElementById('recommendationText').textContent = recommendations[niche];
+        }
+        
+        // Smooth Scroll for Anchor Links
+        function smoothScrollTo(elementId) {
+            document.getElementById(elementId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // FAQ Toggle Functionality
+        function toggleFAQ(index) {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const content = faqItems[index].querySelector('.faq-content');
+            const arrow = faqItems[index].querySelector('.faq-arrow');
+            
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                arrow.classList.remove('open');
+            } else {
+                content.classList.add('open');
+                arrow.classList.add('open');
+            }
+        }
+        
+        // Initialize all features when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initStickyBar();
+            initExitIntent();
+        });
+        
+        // Newsletter Calculator Logic
+        const arpuData = {
+            writers: { sponsorships: 1.5, paid: 5, digital: 3, services: 8, hybrid: 4 },
+            business: { sponsorships: 3, paid: 12, digital: 6, services: 15, hybrid: 8 },
+            creators: { sponsorships: 2, paid: 8, digital: 4, services: 10, hybrid: 6 },
+            coaches: { sponsorships: 2.5, paid: 10, digital: 5, services: 12, hybrid: 7 },
+            courses: { sponsorships: 2, paid: 8, digital: 4, services: 10, hybrid: 6 },
+            saas: { sponsorships: 4, paid: 15, digital: 8, services: 20, hybrid: 10 },
+            freelancers: { sponsorships: 1, paid: 4, digital: 2, services: 6, hybrid: 3 }
+        };
+
+        const cpaData = {
+            writers: 1.50, business: 2.00, creators: 2.50, coaches: 1.20, 
+            courses: 1.50, saas: 1.75, freelancers: 0.60
+        };
+
+        const recommendations = {
+            writers: "Focus on Twitter/X + LinkedIn. Share writing tips, book excerpts, and author journey content.",
+            business: "LinkedIn + email marketing. Share business insights, success stories, and actionable tips.",
+            creators: "Twitter/X + YouTube. Create 'behind-the-scenes' content and framework breakdowns.",
+            coaches: "LinkedIn + Instagram. Share client transformations, coaching tips, and industry insights.",
+            courses: "LinkedIn + content marketing. Share educational snippets, student success stories, and free mini-lessons.",
+            saas: "Twitter/X + LinkedIn. Share product updates, customer stories, and industry analysis.",
+            freelancers: "LinkedIn + Twitter/X. Share expertise, client case studies, and freelancing tips."
+        };
+
+        // Set the date we're counting down to (July 31st midnight EST)
         const DateTime = luxon.DateTime;
         const est = DateTime.local().setZone('America/New_York');
         const countDownDate = DateTime.fromObject({
             year: 2025,
-            month: 4,
-            day: 23,
+            month: 7,
+            day: 31,
             hour: 23,
             minute: 59,
             second: 59
