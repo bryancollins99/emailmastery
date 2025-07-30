@@ -163,23 +163,39 @@
         .faq-item {
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
         }
         .faq-item:hover {
             background-color: #f8fafc;
+            border-color: #d1d5db;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         .faq-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 0;
+            padding-bottom: 0;
         }
         .faq-content.open {
-            max-height: 200px;
+            max-height: 500px;
+            padding-top: 0;
+            padding-bottom: 1.5rem;
         }
         .faq-arrow {
             transition: transform 0.3s ease;
+            color: #6b7280;
+            font-weight: bold;
         }
         .faq-arrow.open {
             transform: rotate(180deg);
+            color: #4f46e5;
+        }
+        .faq-question {
+            user-select: none;
         }
     </style>
 </head>
@@ -187,7 +203,7 @@
     <header class="gradient-bg text-white py-16 px-4">
         <div class="max-w-4xl mx-auto mb-8">
             <div class="timer-section p-4 rounded-lg text-center">
-                <h3 class="text-xl font-bold mb-2">🔔 BUNDLE DISAPPEARS AFTER July 31st! 🔔</h3>
+                <h3 class="text-xl font-bold mb-2">🔔 BUNDLE DISAPPEARS AFTER August 4th! 🔔</h3>
                 <div class="flex justify-center space-x-4" id="countdown">
                     <div class="timer-box">
                         <div class="text-2xl font-bold text-red-600" id="days">00</div>
@@ -366,11 +382,11 @@
                     <p class="text-gray-700">Save 5-7 hours weekly with custom agents that create lead magnets, Substack notes, and content repurposing</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg shadow-md hover-scale border-l-4 border-purple-500">
-                    <h3 class="font-bold text-xl mb-2">✅ The LinkedIn Playbook <span class="text-purple-600">($97 value)</span></h3>
-                    <p class="text-gray-700">Follow this exact playbook to get high-quality subs from LinkedIn, on autopilot.</p>
+                    <h3 class="font-bold text-xl mb-2">✅ Over-the-Shoulder Newsletter Tutorial <span class="text-purple-600">($197 value)</span></h3>
+                    <p class="text-gray-700">Watch me write and send my daily direct response newsletter in real-time. See my exact process, decision-making, and strategies for maximizing opens, clicks, and conversions.</p>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-lg shadow-md hover-scale border-l-4 border-purple-500">
-                    <h3 class="font-bold text-xl mb-2">✅ Swipe-Ready Templates <span class="text-purple-600">($197 value)</span></h3>
+                    <h3 class="font-bold text-xl mb-2">✅ Swipe Ready Templates <span class="text-purple-600">($197 value)</span></h3>
                     <p class="text-gray-700">8 proven lead magnet templates that consistently convert followers into subscribers and customers</p>
                 </div>
      
@@ -387,7 +403,7 @@
 
         <section class="text-center mb-12 bg-white p-8 rounded-lg shadow-xl">
             <div class="mb-6">
-                <p class="text-2xl font-bold mb-2">TOTAL VALUE: <span class="text-purple-600">$1,282</span></p>
+                <p class="text-2xl font-bold mb-2">TOTAL VALUE: <span class="text-purple-600">$1,382</span></p>
                 <p class="text-4xl font-bold mb-4">YOUR INVESTMENT TODAY: <span class="text-green-600">JUST $197</span></p>
             </div>
             <a href="https://checkout.teachable.com/secure/37332/checkout/order_pz65ndkp" class="inline-block bg-green-600 text-white text-xl font-bold py-4 px-8 rounded-full hover:bg-green-700 btn-hover pulse">
@@ -481,76 +497,76 @@
             <div class="max-w-4xl mx-auto px-4">
                 <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
                 <div class="space-y-4">
-                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(0)">
-                        <div class="p-6 flex justify-between items-center">
-                            <h3 class="text-xl font-bold">💸 Who Is This Bundle For?</h3>
+                    <div class="bg-white rounded-lg faq-item" onclick="toggleFAQ(0)">
+                        <div class="p-6 flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-bold text-gray-800">💸 Who Is This Bundle For?</h3>
                             <span class="faq-arrow text-2xl">▼</span>
                         </div>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-700">It's for writers, creators, and business owners. The bundle is for anyone who creates content to build a brand, make an impact or earn some moolah from plain old email.</p>
+                        <div class="faq-content">
+                            <p class="text-gray-700 leading-relaxed">It's for writers, creators, and business owners. The bundle is for anyone who creates content to build a brand, make an impact or earn some moolah from plain old email.</p>
                         </div>
                     </div>
-                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(1)">
-                        <div class="p-6 flex justify-between items-center">
-                            <h3 class="text-xl font-bold">🌱 I'm a beginner, and I don't have an email list...</h3>
+                    <div class="bg-white rounded-lg faq-item" onclick="toggleFAQ(1)">
+                        <div class="p-6 flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-bold text-gray-800">🌱 I'm a beginner, and I don't have an email list...</h3>
                             <span class="faq-arrow text-2xl">▼</span>
                         </div>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-700">The workshops show you everything you need to write and grow your email list. I still use these strategies today to add hundreds of new subscribers to my lists every month.</p>
+                        <div class="faq-content">
+                            <p class="text-gray-700 leading-relaxed">The workshops show you everything you need to write and grow your email list. I still use these strategies today to add hundreds of new subscribers to my lists every month.</p>
                         </div>
                     </div>
-                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(2)">
-                        <div class="p-6 flex justify-between items-center">
-                            <h3 class="text-xl font-bold">📝 Is this just theory, or will I implement something that works?</h3>
+                    <div class="bg-white rounded-lg faq-item" onclick="toggleFAQ(2)">
+                        <div class="p-6 flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-bold text-gray-800">📝 Is this just theory, or will I implement something that works?</h3>
                             <span class="faq-arrow text-2xl">▼</span>
                         </div>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-700">This isn't just theory—each workshop includes step-by-step implementation guides, templates, and specific actions you can take immediately.</p>
+                        <div class="faq-content">
+                            <p class="text-gray-700 leading-relaxed">This isn't just theory—each workshop includes step-by-step implementation guides, templates, and specific actions you can take immediately.</p>
                         </div>
                     </div>
-                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(3)">
-                        <div class="p-6 flex justify-between items-center">
-                            <h3 class="text-xl font-bold">⏱️ I'm already stretched thin. How much time will this take to implement?</h3>
+                    <div class="bg-white rounded-lg faq-item" onclick="toggleFAQ(3)">
+                        <div class="p-6 flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-bold text-gray-800">⏱️ I'm already stretched thin. How much time will this take to implement?</h3>
                             <span class="faq-arrow text-2xl">▼</span>
                         </div>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-700">I designed this system specifically for busy creators. The workshops are actionable and contain time-saving AI tools. One AI tool alone saves 5-7 hours weekly on content creation.</p>
+                        <div class="faq-content">
+                            <p class="text-gray-700 leading-relaxed">I designed this system specifically for busy creators. The workshops are actionable and contain time-saving AI tools. One AI tool alone saves 5-7 hours weekly on content creation.</p>
                         </div>
                     </div>
-                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(4)">
-                        <div class="p-6 flex justify-between items-center">
-                            <h3 class="text-xl font-bold">💻 I'm not tech-savvy. Will I be able to handle the AI tools?</h3>
+                    <div class="bg-white rounded-lg faq-item" onclick="toggleFAQ(4)">
+                        <div class="p-6 flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-bold text-gray-800">💻 I'm not tech-savvy. Will I be able to handle the AI tools?</h3>
                             <span class="faq-arrow text-2xl">▼</span>
                         </div>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-700">Absolutely! I built these AI tools for creators, not developers.I've tested the process with complete beginners. If you can use Gmail, you can implement these systems. Plus, you'll get access to our quick-start guides that make setup a breeze.</p>
+                        <div class="faq-content">
+                            <p class="text-gray-700 leading-relaxed">Absolutely! I built these AI tools for creators, not developers. I've tested the process with complete beginners. If you can use Gmail, you can implement these systems. Plus, you'll get access to our quick-start guides that make setup a breeze.</p>
                         </div>
                     </div>
-                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(5)">
-                        <div class="p-6 flex justify-between items-center">
-                            <h3 class="text-xl font-bold">🤝 What kind of support do I get?</h3>
+                    <div class="bg-white rounded-lg faq-item" onclick="toggleFAQ(5)">
+                        <div class="p-6 flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-bold text-gray-800">🤝 What kind of support do I get?</h3>
                             <span class="faq-arrow text-2xl">▼</span>
                         </div>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-700">You'll have direct email access to me (Bryan) for any questions or support you need. I personally respond to all emails and am committed to helping you succeed with your newsletter operation.</p>
+                        <div class="faq-content">
+                            <p class="text-gray-700 leading-relaxed">You'll have direct email access to me (Bryan) for any questions or support you need. I personally respond to all emails and am committed to helping you succeed with your newsletter operation.</p>
                         </div>
                     </div>
-                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(6)">
-                        <div class="p-6 flex justify-between items-center">
-                            <h3 class="text-xl font-bold">⏰ How long do I have access to the workshops?</h3>
+                    <div class="bg-white rounded-lg faq-item" onclick="toggleFAQ(6)">
+                        <div class="p-6 flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-bold text-gray-800">⏰ How long do I have access to the workshops?</h3>
                             <span class="faq-arrow text-2xl">▼</span>
                         </div>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-700">The workshops are completely self-paced, and you get lifetime access to all content. Learn at your own speed and revisit the material whenever you need a refresher.</p>
+                        <div class="faq-content">
+                            <p class="text-gray-700 leading-relaxed">The workshops are completely self-paced, and you get lifetime access to all content. Learn at your own speed and revisit the material whenever you need a refresher.</p>
                         </div>
                     </div>
-                    <div class="bg-gray-50 rounded-lg shadow-md faq-item" onclick="toggleFAQ(7)">
-                        <div class="p-6 flex justify-between items-center">
-                            <h3 class="text-xl font-bold">⚡ How long is this offer available?</h3>
+                    <div class="bg-white rounded-lg faq-item" onclick="toggleFAQ(7)">
+                        <div class="p-6 flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-bold text-gray-800">⚡ How long is this offer available?</h3>
                             <span class="faq-arrow text-2xl">▼</span>
                         </div>
-                        <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-700">This bundle disappears after July 31st. Once this deadline passes, this offer will no longer be available at this price point, and the bonuses will be gone.</p>
+                        <div class="faq-content">
+                            <p class="text-gray-700 leading-relaxed">This bundle disappears after August 4th. Once this deadline passes, this offer will no longer be available at this price point, and the bonuses will be gone.</p>
                         </div>
                     </div>
                 </div>
@@ -700,7 +716,8 @@
         function showExitPopup() {
             if (exitIntentShown) return;
             exitIntentShown = true;
-            document.getElementById('exitPopup').style.display = 'flex';
+            // Redirect directly to Teachable checkout on exit intent
+            window.open('https://checkout.teachable.com/secure/37332/checkout/order_v2r44ryz', '_blank');
         }
         
         function closeExitPopup() {
@@ -899,13 +916,13 @@
             freelancers: "LinkedIn + Twitter/X. Share expertise, client case studies, and freelancing tips."
         };
 
-        // Set the date we're counting down to (July 31st midnight EST)
+        // Set the date we're counting down to (August 4th midnight EST)
         const DateTime = luxon.DateTime;
         const est = DateTime.local().setZone('America/New_York');
         const countDownDate = DateTime.fromObject({
             year: 2025,
-            month: 7,
-            day: 31,
+            month: 8,
+            day: 4,
             hour: 23,
             minute: 59,
             second: 59
